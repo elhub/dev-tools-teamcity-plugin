@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project>
     <modelVersion>4.0.0</modelVersion>
-    <name>ModulesCommon_CommonBuildConfiguration Config DSL Script</name>
-    <groupId>ModulesCommon_CommonBuildConfiguration</groupId>
-    <artifactId>ModulesCommon_CommonBuildConfiguration_dsl</artifactId>
+    <name>Tools_DevToolsElhubTeamCityPlugin Config DSL Script</name>
+    <groupId>Tools_DevToolsElhubTeamCityPlugin</groupId>
+    <artifactId>Tools_DevToolsElhubTeamCityPlugin_dsl</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
@@ -13,7 +13,7 @@
     </parent>
 
     <properties>
-        <common-build-configuration.version>[0.10.0, 0,11.0)</common-build-configuration.version>
+        <common-build-configuration.version>[0.10.0,0.11.0)</common-build-configuration.version>
     </properties>
 
     <repositories>
