@@ -44,11 +44,17 @@ project {
             )
         )
 
+        val githubAuth = SshAgent({
+            teamcitySshKey = "teamcity_github_rsa"
+            param("secure:passphrase", GlobalTokens.githubSshPassphrase)
+        })
+
         buildType(
             AutoRelease(
                 AutoRelease.Config(
                     vcsRoot = DslContext.settingsRoot,
-                    type = ProjectType.GRADLE
+                    type = ProjectType.GRADLE,
+                    sshAgent = githubAuth
                 )
             ) {
                 triggers {
