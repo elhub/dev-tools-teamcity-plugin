@@ -8,7 +8,6 @@ plugins {
     id("maven-publish") apply true
 }
 
-extra["teamcityVersion"] = findProperty("teamcity.version") ?: "2020.2"
 val mavenPubName = "teamCityPlugin"
 
 description = "Implement automated semantic release for gradle, maven and ansible projects."
