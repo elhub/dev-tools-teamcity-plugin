@@ -24,15 +24,6 @@ project {
     val buildChain = sequential {
 
         buildType(
-            UnitTest(
-                UnitTest.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = ProjectType.GRADLE
-                )
-            )
-        )
-
-        buildType(
             SonarScan(
                 SonarScan.Config(
                     vcsRoot = DslContext.settingsRoot,
