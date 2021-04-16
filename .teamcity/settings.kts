@@ -29,7 +29,8 @@ project {
                     vcsRoot = DslContext.settingsRoot,
                     type = ProjectType.GRADLE,
                     sonarId = projectId,
-                    sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src"
+                    sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src",
+                    sonarProjectTests = null
                 )
             )
         )
