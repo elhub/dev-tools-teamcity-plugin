@@ -1,13 +1,13 @@
-# Project Name
+# elhub-teamcity-plugin
 
-<!-- PROJECT SHIELDS -->
-![TeamCity Build](https://teamcity.elhub.cloud/app/rest/builds/buildType:(id:Common_CommonBuildConfiguration_AutoRelease)/statusIcon)
-[![Quality Gate Status](https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin&metric=alert_status)](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin)
-[![Lines of Code](https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin&metric=ncloc)](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin)
-
-[![Vulnerabilities](https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin&metric=vulnerabilities)](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin)
-[![Bugs](https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin&metric=bugs)](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin)
-[![Code Smells](https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin&metric=code_smells)](https://sonar.elhub.cloud/dashboard?id=no.elhub.tools%3Adev-tools-elhub-teamcity-plugin)
+[<img src="https://img.shields.io/badge/repo-github-blue" alt="">](https://github.com/elhub/devxp-elhub-teamcity-plugin)
+[<img src="https://img.shields.io/badge/issues-jira-orange" alt="">](https://jira.elhub.cloud/issues/?jql=project%20%3D%20%22Team%20Dev%22%20AND%20component%20%3D%20devxp-elhub-teamcity-plugin%20AND%20status%20!%3D%20Done)
+[<img src="https://teamcity.elhub.cloud/app/rest/builds/buildType:(id:DevXp_DevXpElhubTeamcityPlugin_PublishDocs)/statusIcon" alt="">](https://teamcity.elhub.cloud/project/DevXp_DevXpElhubTeamcityPlugin?mode=builds#all-projects)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=alert_status" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=ncloc" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=bugs" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=vulnerabilities" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
+[<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=coverage" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
 
 ## Table of Contents
 
@@ -29,7 +29,7 @@ This is a TeamCity plugin developed for Elhub's TeamCity installation. It compri
 that add a build feature to TeamCity for [Phabricator](https://www.phacility.com/phabricator/) code reviews.
 
 Our typical use case is to have Phabricator trigger a build configuration in our TeamCity installation using the
-[elhub-phabricator-extensions](https://github.com/elhub/dev-tools-elhub-phabricator-extensions) (typically our 
+[elhub-teamcity-plugin](https://github.com/elhub/dev-tools-elhub-teamcity-plugin) (typically our 
 CodeReview workflow, which you can also see in the .teamcity sourcecode for this project). The build feature in
 this project uses arcanist to pull in the changes from the differential revision that triggered the build
 configuration. The build configuration then performs unit tests, linting and performs a sonar scans on the
