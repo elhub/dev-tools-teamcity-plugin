@@ -66,7 +66,7 @@ project {
         }
     }
 
-    listOf(sonarScan, release).forEach { buildType(it) }
+    listOf(unitTest, sonarScan, release).forEach { buildType(it) }
 
     buildType(
         CodeReview(
