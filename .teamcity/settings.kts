@@ -25,6 +25,14 @@ project {
         param("teamcity.ui.settings.readOnly", "true")
     }
 
+    val unitTest = UnitTest(
+        UnitTest.Config(
+            vcsRoot = DslContext.settingsRoot,
+            type = projectType,
+            generateAllureReport = false,
+        )
+    )
+
     val sonarScanConfig = SonarScan.Config(
         vcsRoot = DslContext.settingsRoot,
         type = projectType,
@@ -33,7 +41,11 @@ project {
         sonarProjectTests = null
     )
 
-    val sonarScan = SonarScan(sonarScanConfig)
+    val sonarScan = SonarScan(sonarScanConfig) {
+        dependencies {
+            snapshot(unitTest) { }
+        }
+    }
 
     val release = AutoRelease(
         AutoRelease.Config(
