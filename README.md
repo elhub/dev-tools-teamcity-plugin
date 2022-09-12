@@ -9,20 +9,6 @@
 [<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=vulnerabilities" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
 [<img src="https://sonar.elhub.cloud/api/project_badges/measure?project=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin&metric=coverage" alt="">](https://sonar.elhub.cloud/dashboard?id=no.elhub.devxp%3Adevxp-elhub-teamcity-plugin)
 
-## Table of Contents
-
-* [About](#about)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Testing](#testing)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [Owners](#owners)
-* [License](#license)
-
-
 ## About
 
 This is a TeamCity plugin developed for Elhub's TeamCity installation. It comprises of a server and an agent plugin
@@ -82,10 +68,6 @@ Explain how to run the automated tests for this system if appropriate.
 ```shell
 ./gradlew test
 ```
-
-## Roadmap
-
-See the [open issues](https://jira.elhub.cloud/issues/?jql=project%20%3D%20TD%20AND%20component%20%3D%20elhub-teamcity-plugin%20AND%20resolution%20%3D%20Unresolved) for a list of proposed features (and known issues).
 
 ## Contributing
 

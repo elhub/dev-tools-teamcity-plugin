@@ -9,7 +9,6 @@ import no.elhub.devxp.build.configuration.Assemble
 import no.elhub.devxp.build.configuration.AutoRelease
 import no.elhub.devxp.build.configuration.CodeReview
 import no.elhub.devxp.build.configuration.ProjectType
-import no.elhub.devxp.build.configuration.PublishDocs
 import no.elhub.devxp.build.configuration.SonarScan
 import no.elhub.devxp.build.configuration.UnitTest
 import no.elhub.devxp.build.configuration.constants.GlobalTokens
@@ -17,8 +16,8 @@ import no.elhub.devxp.build.configuration.constants.GlobalTokens
 version = "2022.04"
 
 project {
-
-    val projectId = "no.elhub.tools:dev-tools-elhub-teamcity-plugin"
+    val projectName = "devxp-elhub-teamcity-plugin"
+    val projectId = "no.elhub.devxp:$projectName"
     val projectType = ProjectType.GRADLE
     val artifactoryRepository = "elhub-mvn-release-local"
 
@@ -26,79 +25,43 @@ project {
         param("teamcity.ui.settings.readOnly", "true")
     }
 
-    val buildChain = sequential {
+    val sonarScanConfig = SonarScan.Config(
+        vcsRoot = DslContext.settingsRoot,
+        type = projectType,
+        sonarId = projectId,
+        sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src",
+        sonarProjectTests = null
+    )
 
-        buildType(
-            SonarScan(
-                SonarScan.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType,
-                    sonarId = projectId,
-                    sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src",
-                    sonarProjectTests = null
-                )
-            )
+    val sonarScan = SonarScan(sonarScanConfig)
+
+    val release = AutoRelease(
+        AutoRelease.Config(
+            vcsRoot = DslContext.settingsRoot,
+            type = projectType,
+            repository = artifactoryRepository
         )
-
-        buildType(
-            Assemble(
-                Assemble.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType
-                )
-            )
-        )
-
-        val githubAuth = SshAgent({
-            teamcitySshKey = "teamcity_github_rsa"
-            param("secure:passphrase", GlobalTokens.githubSshPassphrase)
-        })
-
-        buildType(
-            AutoRelease(
-                AutoRelease.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType,
-                    sshAgent = githubAuth
-                )
-            ) {
-                triggers {
-                    vcs {
-                        branchFilter = "+:<default>"
-                        quietPeriodMode = VcsTrigger.QuietPeriodMode.USE_DEFAULT
-                    }
-                }
+    ) {
+        triggers {
+            vcs {
+                branchFilter = "+:<default>"
+                quietPeriodMode = VcsTrigger.QuietPeriodMode.USE_DEFAULT
             }
-        )
+        }
 
-        buildType(
-            PublishDocs(
-                PublishDocs.Config(
-                    vcsRoot = DslContext.settingsRoot,
-                    type = projectType,
-                    dest = "devxp/devxp-elhub-teamcity-plugin"
-                )
-            ) {
-                triggers {
-                    vcs {
-                        branchFilter = "+:<default>"
-                        quietPeriodMode = VcsTrigger.QuietPeriodMode.USE_DEFAULT
-                    }
-                }
-            }
-        )
-
+        dependencies {
+            snapshot(sonarScan) { }
+        }
     }
 
-    buildChain.buildTypes().forEach { buildType(it) }
+    listOf(sonarScan, release).forEach { buildType(it) }
 
     buildType(
         CodeReview(
             CodeReview.Config(
                 vcsRoot = DslContext.settingsRoot,
                 type = projectType,
-                sonarId = projectId,
-                sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src"
+                sonarScanConfig = sonarScanConfig,
             )
         )
     )
