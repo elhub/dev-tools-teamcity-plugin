@@ -1,7 +1,6 @@
 import com.github.rodm.teamcity.TeamCityEnvironment
 
 plugins {
-    kotlin("jvm")
     id("com.github.rodm.teamcity-server")
 }
 
