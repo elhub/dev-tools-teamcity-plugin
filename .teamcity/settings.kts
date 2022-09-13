@@ -38,7 +38,8 @@ project {
         type = projectType,
         sonarId = projectId,
         sonarProjectSources = "elhub-teamcity-agent/src,elhub-teamcity-common/src,elhub-teamcity-server/src",
-        sonarProjectTests = null
+        sonarProjectTests = null,
+        sonarProjectBinaries = "elhub-teamcity-agent/build/classes,elhub-teamcity-common/build/classes,elhub-teamcity-server/build/classes"
     )
 
     val sonarScan = SonarScan(sonarScanConfig) {
