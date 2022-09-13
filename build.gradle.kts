@@ -2,7 +2,7 @@ import org.jfrog.gradle.plugin.artifactory.dsl.PublisherConfig
 
 plugins {
     kotlin("jvm") version "1.4.31" apply false
-    id jacoco
+    jacoco
     id("com.github.ben-manes.versions") version "0.36.0"
     id("com.github.rodm.teamcity-server") version "1.3.2"
     id("com.jfrog.artifactory") version "4.18.3"
