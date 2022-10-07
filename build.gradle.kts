@@ -9,4 +9,3 @@ repositories {
 }
 
 description = "Implement automated semantic release for gradle, maven and ansible projects."
-    implementation(platform("no.elhub.test:test-bom:34.1.0"))
