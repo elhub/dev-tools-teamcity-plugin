@@ -1,4 +1,5 @@
 plugins {
+    id("no.elhub.devxp.kotlin-library")
     id ("com.github.rodm.teamcity-agent")
 }
 
