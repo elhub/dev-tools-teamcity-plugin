@@ -30,7 +30,7 @@ and some minor tweaks and adjustments to better suit our systems.
 
 ### Prerequisites
 
-* TeamCity v2020.2 or later
+* TeamCity v2022.04 or later
 
 ### Installation
 
