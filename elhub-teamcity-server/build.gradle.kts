@@ -11,10 +11,10 @@ dependencies {
     implementation(project(":elhub-teamcity-common"))
     implementation(kotlin("stdlib-jdk8"))
     agent (project(path = ":elhub-teamcity-agent", configuration = "plugin"))
-    implementation("org.apache.httpcomponents:httpclient:4.5.13")
-    compileOnly("org.jetbrains.teamcity:server-api:2022.04")
-    compileOnly("org.jetbrains.teamcity:server-web-api:2022.04")
-    testImplementation("org.jetbrains.teamcity:tests-support:2022.04")
+    implementation("org.apache.httpcomponents:httpclient:4.5.14")
+    compileOnly("org.jetbrains.teamcity:server-api:${rootProject.extra["teamcityVersion"]}")
+    compileOnly("org.jetbrains.teamcity:server-web-api:${rootProject.extra["teamcityVersion"]}")
+    testImplementation("org.jetbrains.teamcity:tests-support:${rootProject.extra["teamcityVersion"]}")
 }
 
 extra["downloadsDir"] = project.findProperty("downloads.dir") ?: "${rootDir}/downloads"

@@ -1,6 +1,5 @@
 plugins {
-    //kotlin("jvm") version "1.7.10" apply false
-    id("no.elhub.devxp.kotlin-core") version "0.0.1"
+    id("no.elhub.devxp.kotlin-core") version "0.1.0"
     id("com.github.rodm.teamcity-server") version "1.3.2"
 }
 
