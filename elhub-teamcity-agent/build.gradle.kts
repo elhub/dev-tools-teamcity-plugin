@@ -1,6 +1,6 @@
 plugins {
     id("no.elhub.devxp.kotlin-library")
-    id ("com.github.rodm.teamcity-agent")
+    id("com.github.rodm.teamcity-agent")
 }
 
 description = "elhub-teamcity-plugin-agent"

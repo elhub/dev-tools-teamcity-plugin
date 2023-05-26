@@ -1,6 +1,6 @@
 plugins {
     id("no.elhub.devxp.kotlin-core") version "0.1.0"
-    id("com.github.rodm.teamcity-server") version "1.3.2"
+    id("com.github.rodm.teamcity-server") version "1.5"
 }
 
 repositories {
